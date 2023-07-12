@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.devopsproject</groupId>
-	<artifactId>myapp</artifactId>
+	<artifactId>webapp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>myapp</name>
-	<description>My final devops project</description>
+	<name>webapp</name>
+	<description>My final devops project </description>
 	<properties>
 		<java.version>20</java.version>
 	</properties>

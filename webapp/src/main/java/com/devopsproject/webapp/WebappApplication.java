@@ -1,14 +1,13 @@
-package com.devopsproject.myapp;
+package com.devopsproject.webapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-
 @SpringBootApplication
-public class MyappApplication {
+public class WebappApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MyappApplication.class, args);
+		SpringApplication.run(WebappApplication.class, args);
 	}
 
 }
