@@ -16,13 +16,15 @@ import java.util.List;
 public class LogController {
     private LogRepo logRepo;
 
+    // PostMapping to add custom log if needed
     @PostMapping("/logs")
     Log createLog(@RequestBody Log newLog){
         return logRepo.save(newLog);
     }
-    @GetMapping("**")
+
+    @GetMapping("/newlog")
     public String saveLog(HttpServletRequest request) {
-        String route = request.getRequestURI();
+        String route = "/newlog";
         LocalDateTime timestamp = LocalDateTime.now();
         String message = "Request made on " + timestamp + " to route: " + route;
         Log log = new Log(message);
