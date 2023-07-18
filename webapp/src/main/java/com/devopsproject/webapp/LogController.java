@@ -1,7 +1,6 @@
 package com.devopsproject.webapp;
 
 
-import jakarta.servlet.http.HttpServletRequest;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,14 +15,15 @@ import java.util.List;
 public class LogController {
     private LogRepo logRepo;
 
-    // PostMapping to add custom log if needed
+    // GET endpoint to save a log entry when accessing the "/newlog" route.
     @PostMapping("/logs")
     Log createLog(@RequestBody Log newLog){
         return logRepo.save(newLog);
     }
 
+    // GET endpoint to save a log entry when accessing the "/newlog" route.
     @GetMapping("/newlog")
-    public String saveLog(HttpServletRequest request) {
+    public String saveLog() {
         String route = "/newlog";
         String message = "Request made on " + generateCurrentTime() + " to route: " + route;
         Log log = new Log(message);
@@ -31,7 +31,7 @@ public class LogController {
         return message;
     }
 
-
+    // GET endpoint to retrieve all logs and save a log entry when accessing the "/logs" route.
     @GetMapping("/logs")
     List<Log> getAllLogs(){
         String route = "/logs";
