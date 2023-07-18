@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @AllArgsConstructor
@@ -25,20 +25,25 @@ public class LogController {
     @GetMapping("/newlog")
     public String saveLog(HttpServletRequest request) {
         String route = "/newlog";
-        LocalDateTime timestamp = LocalDateTime.now();
-        String message = "Request made on " + timestamp + " to route: " + route;
+        String message = "Request made on " + generateCurrentTime() + " to route: " + route;
         Log log = new Log(message);
         logRepo.save(log);
         return message;
     }
 
+
     @GetMapping("/logs")
     List<Log> getAllLogs(){
         String route = "/logs";
-        LocalDateTime timestamp = LocalDateTime.now();
-        String message = "Request made on " + timestamp + " to route: " + route;
+        String message = "Request made on " + generateCurrentTime() + " to route: " + route;
         Log log = new Log(message);
         logRepo.save(log);
         return logRepo.findAll();
+    }
+
+    private String generateCurrentTime() {
+        LocalDateTime currentDateTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        return currentDateTime.format(formatter);
     }
 }
