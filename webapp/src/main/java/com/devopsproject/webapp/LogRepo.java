@@ -5,5 +5,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface LogRepo extends JpaRepository<Log, Long> {
-    // Define custom methods if needed
 }
