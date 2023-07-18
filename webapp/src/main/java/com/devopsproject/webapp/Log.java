@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Log {
+    // The message is the log represented by String, it serves as the primary key for the Log entity.
     @Id
     String message;
 }
