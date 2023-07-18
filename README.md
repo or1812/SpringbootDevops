@@ -8,6 +8,7 @@ Before running this application, ensure that you have the following installed:
 
 - Amazon Corretto 20
 - Python Interpreter
+- Apache Maven
 
 ## Installation
 
