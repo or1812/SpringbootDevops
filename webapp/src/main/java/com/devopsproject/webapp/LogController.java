@@ -15,7 +15,7 @@ import java.util.List;
 public class LogController {
     private LogRepo logRepo;
 
-    // GET endpoint to save a log entry when accessing the "/newlog" route.
+    // PostMapping to add custom log if needed
     @PostMapping("/logs")
     Log createLog(@RequestBody Log newLog){
         return logRepo.save(newLog);
